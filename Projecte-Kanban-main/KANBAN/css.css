@@ -1,0 +1,28 @@
+#div1 {
+    width: 250px;
+    height: 350px;
+    padding: 10px;
+    border: 1px solid #ff0000;
+    background-color: #ff0000;
+}
+#div2 {
+    width: 250px;
+    height: 350px;
+    padding: 10px;
+    border: 1px solid #fffb00;
+    background-color: #fffb00;
+}
+#div3 {
+    width: 250px;
+    height: 350px;
+    padding: 10px;
+    border: 1px solid #2bff00;
+    background-color: #2bff00;
+}
+#div4 {
+    width: 250px;
+    height: 350px;
+    padding: 10px;
+    border: 1px solid #ff00ff;
+    background-color: #ff00ff;
+}
