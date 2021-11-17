@@ -1,21 +1,3 @@
-//Declara les variables nom, cognom, btn-guardar i titol
-
-// let nom = document.getElementById('nom');
-// let cognom = document.getElementById('cognom');
-// let btn = document.getElementById('btn-guardar');
-// let titol = document.getElementById('titol');
-
-// let nomAnterior = JSON.parse(window.localStorage.getItem('nom'));
-// if(nomAnterior != undefined) {
-//     titol.innerText = `Hola ` + nomAnterior.nom + ' ' + nomAnterior.cognom;   // <-- Text
-// }
-
-// btn.addEventListener("click", () => {
-//     titol.innerText = `Hola ` + nom.value + ' ' + cognom.value;
-//     let dada = {nom: nom.value, cognom: cognom.value};
-//     window.localStorage.setItem('nom', JSON.stringify(dada));
-// });
-
 // Porjcte SCRUM ALBEX
 
 //Declarar les variables
@@ -24,6 +6,7 @@ let descripcio = document.getElementById('descripcio');
 let dataInici = document.getElementById('dataInici');
 let dataFinal = document.getElementById('dataFinal');
 let nom = document.getElementById('nom');
+let tria = document.getElementById('tria');
 let btn = document.getElementById('btn-Crear');
 let div1 = document.getElementsByClassName('div1')[0];
 
@@ -34,11 +17,11 @@ btn.addEventListener("click", () => {
     let tasquesAnteriors = JSON.parse(window.localStorage.getItem('tasca'));
     if(tasquesAnteriors != undefined) {
         tasquesAnteriors.push({codi: codi.value, descripcio: descripcio.value, dataInici: dataInici.value, 
-            dataFinal: dataFinal.value, nom: nom.value});
+            dataFinal: dataFinal.value, nom: nom.value, tria: tria.value});
             window.localStorage.setItem('tasca', JSON.stringify(tasquesAnteriors));
     } else {
         let dades = {codi: codi.value, descripcio: descripcio.value, dataInici: dataInici.value, 
-            dataFinal: dataFinal.value, nom: nom.value};
+            dataFinal: dataFinal.value, nom: nom.value, tria: tria.value};
         window.localStorage.setItem('tasca', JSON.stringify([dades]));
     }
     mostrarDades();
@@ -52,14 +35,21 @@ function mostrarDades() {
     {
         for(let i = 0; i < tascaAnterior.length; i++)
         {
-            div1.innerHTML += `<p id="${'drag' + tascaAnterior[i].codi}" draggable="true" ondragstart="drag(event)">
-            ${tascaAnterior[i].codi + ' ' + tascaAnterior[i].descripcio + ' ' + tascaAnterior[i].dataInici + ' ' + tascaAnterior[i].dataFinal + ' ' + tascaAnterior[i].nom}</p> <br>`
-            // let opt = document.createElement('p');
-            // opt.id = 'drag'+tascaAnterior[i].codi;
-            // opt.draggable = "true";
-            // opt.ondragstart = "drag(event)";
-            // opt.innerText = tascaAnterior[i].codi + ' ' + tascaAnterior[i].descripcio + ' ' + tascaAnterior[i].dataInici + ' ' + tascaAnterior[i].dataFinal + ' ' + tascaAnterior[i].nom;
-            // div1.appendChild(opt);
+            if(tascaAnterior[i].tria == 'urgent')
+            {
+                div1.innerHTML += `<p id="${'drag' + tascaAnterior[i].codi}" draggable="true" ondragstart="drag(event)" class="urgent">
+                ${tascaAnterior[i].codi + ' ' + tascaAnterior[i].descripcio + ' ' + tascaAnterior[i].dataInici + ' ' + tascaAnterior[i].dataFinal + ' ' + tascaAnterior[i].nom + ' ' + tascaAnterior[i].tria}</p>`
+            }
+            else if(tascaAnterior[i].tria == 'poc urgent')
+            {
+                div1.innerHTML += `<p id="${'drag' + tascaAnterior[i].codi}" draggable="true" ondragstart="drag(event)" class="poc">
+                ${tascaAnterior[i].codi + ' ' + tascaAnterior[i].descripcio + ' ' + tascaAnterior[i].dataInici + ' ' + tascaAnterior[i].dataFinal + ' ' + tascaAnterior[i].nom + ' ' + tascaAnterior[i].tria}</p>`
+            }
+            else if(tascaAnterior[i].tria == 'molt urgent')
+            {
+                div1.innerHTML += `<p id="${'drag' + tascaAnterior[i].codi}" draggable="true" ondragstart="drag(event)" class="molt">
+                ${tascaAnterior[i].codi + ' ' + tascaAnterior[i].descripcio + ' ' + tascaAnterior[i].dataInici + ' ' + tascaAnterior[i].dataFinal + ' ' + tascaAnterior[i].nom + ' ' + tascaAnterior[i].tria}</p>`
+            }
         }
     }
 }
