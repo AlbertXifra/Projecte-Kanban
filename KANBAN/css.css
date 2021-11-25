@@ -5,7 +5,8 @@ body {
 h1{
     font-size: 45px;
     color: white;
-    text-shadow: 0.1em 0.1em 0.2em white;
+    text-shadow: 0.1em 0.1em 0.5em white;
+    text-decoration: underline;
 }
 
 h3{
@@ -21,14 +22,21 @@ h4{
 
 p{
     margin: 0 auto;
-    width: 150px;
+    margin-top: 15px;
+    width: 180px;
     height: auto;
     background-color: white;
-    border-radius: 15px 15px 0px 15px;
+    border-radius: 10px 10px 0px 10px;
     font-size: 18px;
     text-align: center;
     color : black;
-    margin-top: 15px;
+}
+
+table {
+    border-color: white;
+    border-radius: 5px;
+    border-style: solid;
+    border-width: solid;
 }
 
 .urgent {

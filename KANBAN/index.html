@@ -11,37 +11,39 @@
 
     <h1 style="text-align: center;">SCRUM</h1>
     <br>
-    <div">
+    <div style="overflow-x: auto;">
         <table border="1" style="margin: 0 auto;">
             <tr>
                 <td><h3>Formulari</h3></td>
                 <td><h3>ToDo</h3></td>
                 <td><h3>Doing</h3></td>
                 <td><h3>Done</h3></td>
-                </tr>
+            </tr>
             <tr>
                 <td id="div">
                     <h4>Entra el codi</h4>
-                    <input type="text" name = "codi" id="codi">
+                    <input type="number" name = "codi" id="codi">
                     <h4>Entra la decripcio</h4>
-                    <input type="text" name = "descripcio" id="descripcio">
+                    <input type="text" name = "descripcio" id="descripcio" value="">
                     <h4>Entra la data de inici</h4>
                     <input type="date" name = "dataInici" id="dataInici">
                     <h4>Entra la data de finalitzacio</h4>
                     <input type="date" name = "dataFinal" id="dataFinal">
                     <h4>Entra el nom del responsable</h4>
-                    <input type="text" name = "nom" id="nom">
+                    <input type="text" name = "nom" id="nom" value="">
                     <h4>Tria Urgencia: </h4>
                     <select id ="tria">
-                        <option value="poc urgent">Poc Urgent</option>
-                        <option value="urgent">Urgent</option>
-                        <option value="molt urgent">Molt Urgent</option>
+                        <option id="div6" value="molt urgent">Molt Urgent</option>
+                        <option id="div7" value="urgent">Urgent</option>
+                        <option id="div8" value="poc urgent">Poc Urgent</option>
                     </select>
                     <br>
                     <br>
                     <button id="btn-Crear">Crear</button>
                 </td>
-                <td id="div1" class="div1" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+                <td id="div1" class="div1" ondrop="drop(event)" ondragover="allowDrop(event)">
+                    <p id="drag1" draggable="true" ondragstart="drag(event)">Hola</p>
+                </td>
                 <td id="div2" class="div1" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
                 <td id="div3" class="div1" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
             </tr>
