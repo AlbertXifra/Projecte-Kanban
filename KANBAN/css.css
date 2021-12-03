@@ -1,9 +1,7 @@
-/* Dissenyar el fondo del body */
 body {
     background-image: url("https://p4.wallpaperbetter.com/wallpaper/363/368/20/dark-wood-texture-wallpaper-preview.jpg");
 }
 
-/* Dissenyar el fondo del h1 */
 h1{
     font-size: 45px;
     color: white;
@@ -11,21 +9,17 @@ h1{
     text-decoration: underline;
 }
 
-/* Dissenyar el fondo del h3 */
 h3{
     text-align: center;
     font-size: 23px;
     color: white;
     text-shadow: 0 0 0.2em black;
 }
-
-/* Dissenyar el fondo del h4 */
 h4{
     font-size: 16px;
     color: white;
 }
 
-/* Dissenyar el fondo del p */
 p{
     margin: 0 auto;
     margin-top: 15px;
@@ -38,7 +32,6 @@ p{
     color : black;
 }
 
-/* Dissenyar el fondo del table */
 table {
     border-color: white;
     border-radius: 5px;
@@ -46,7 +39,6 @@ table {
     border-width: solid;
 }
 
-/* Dissenyar el fondo del .urgent */
 .urgent {
     margin: 0 auto;
     width: 150px;
@@ -59,7 +51,6 @@ table {
     margin-top: 15px;
 }
 
-/* Dissenyar el fondo del .poc */
 .poc {
     margin: 0 auto;
     width: 150px;
@@ -72,7 +63,6 @@ table {
     margin-top: 15px;
 }
 
-/* Dissenyar el fondo del .molt */
 .molt {
     margin: 0 auto;
     width: 150px;
@@ -85,7 +75,6 @@ table {
     margin-top: 15px;
 }
 
-/* Dissenyar el fondo del #div */
 #div {
     width: 220px;
     height: 500px;
@@ -93,7 +82,6 @@ table {
     opacity: 0.7;
 }
 
-/* Dissenyar el fondo del #div1 */
 #div1 {
     width: 250px;
     height: 500px;
@@ -101,7 +89,6 @@ table {
     opacity: 0.7;
 }
 
-/* Dissenyar el fondo del #div2 */
 #div2 {
     width: 250px;
     height: 350px;
@@ -109,10 +96,14 @@ table {
     opacity: 0.7;
 }
 
-/* Dissenyar el fondo del #div3 */
 #div3 {
     width: 250px;
     height: 350px;
     padding: 10px;
     opacity: 0.7;
+}
+
+.btn-delete {
+    width: auto;
+    height: auto;
 }

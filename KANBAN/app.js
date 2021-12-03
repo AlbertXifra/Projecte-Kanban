@@ -78,7 +78,6 @@ function negatiuCodi() {
     }
 }
 
-
 // Funcio mostrar dades a la taula
 function mostrarDades() {
     div1.innerText = '';
@@ -90,24 +89,23 @@ function mostrarDades() {
             if(tascaAnterior[i].tria == 'urgent')
             {
                 div1.innerHTML += `<p id="${'drag' + tascaAnterior[i].codi}" draggable="true" ondragstart="drag(event)" class="urgent">
-                ${tascaAnterior[i].codi + ' ' + tascaAnterior[i].descripcio + ' ' + tascaAnterior[i].dataInici + ' ' + tascaAnterior[i].dataFinal + ' ' + tascaAnterior[i].nom}</p>`
+                ${tascaAnterior[i].codi + ' ' + tascaAnterior[i].descripcio + ' ' + tascaAnterior[i].dataInici + ' ' + tascaAnterior[i].dataFinal + ' ' + tascaAnterior[i].nom + '<button class="btn-delete" id = "delete-button" onclick="eliminar_tasques(' + i})">Delete</button></p>`
             }
             else if(tascaAnterior[i].tria == 'poc urgent')
             {
                 div1.innerHTML += `<p id="${'drag' + tascaAnterior[i].codi}" draggable="true" ondragstart="drag(event)" class="poc">
-                ${tascaAnterior[i].codi + ' ' + tascaAnterior[i].descripcio + ' ' + tascaAnterior[i].dataInici + ' ' + tascaAnterior[i].dataFinal + ' ' + tascaAnterior[i].nom}</p>`
+                ${tascaAnterior[i].codi + ' ' + tascaAnterior[i].descripcio + ' ' + tascaAnterior[i].dataInici + ' ' + tascaAnterior[i].dataFinal + ' ' + tascaAnterior[i].nom + '<button class="btn-delete" id = "delete-button" onclick="eliminar_tasques(' + i})">Delete</button></p>`
             }
             else if(tascaAnterior[i].tria == 'molt urgent')
             {
                 div1.innerHTML += `<p id="${'drag' + tascaAnterior[i].codi}" draggable="true" ondragstart="drag(event)" class="molt">
-                ${tascaAnterior[i].codi + ' ' + tascaAnterior[i].descripcio + ' ' + tascaAnterior[i].dataInici + ' ' + tascaAnterior[i].dataFinal + ' ' + tascaAnterior[i].nom}</p>`
+                ${tascaAnterior[i].codi + ' ' + tascaAnterior[i].descripcio + ' ' + tascaAnterior[i].dataInici + ' ' + tascaAnterior[i].dataFinal + ' ' + tascaAnterior[i].nom + '<button class="btn-delete" id = "delete-button" onclick="eliminar_tasques(' + i})">Delete</button></p>`
             }
         }
     }
 
 
 }
-
 
 // Funcio per fer el drag and drop a la taula
 function allowDrop(ev) {
@@ -123,4 +121,14 @@ function allowDrop(ev) {
     var data = ev.dataTransfer.getData("text");
     console.log(data);
     ev.target.appendChild(document.getElementById(data));
+}
+
+function eliminar_tasques(id) {
+    let tasques = JSON.parse(window.localStorage.getItem('tasca'));
+    
+    tasques.splice(id,1);
+
+    window.localStorage.setItem('tasca', JSON.stringify(tasques));
+
+    mostrarDades();
 }
