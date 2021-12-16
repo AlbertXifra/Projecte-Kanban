@@ -21,30 +21,32 @@
             </tr>
             <tr>
                 <td id="div">
-                    <h4>Entra el codi</h4>
-                    <input type="number" name = "codi" id="codi">
-                    <h4>Entra la decripcio</h4>
-                    <input type="text" name = "descripcio" id="descripcio" value="">
-                    <h4>Entra la data de inici</h4>
-                    <input type="date" name = "dataInici" id="dataInici">
-                    <h4>Entra la data de finalitzacio</h4>
-                    <input type="date" name = "dataFinal" id="dataFinal">
-                    <h4>Entra el nom del responsable</h4>
-                    <select id ="nom">
-                        <option value="alex">Alex</option>
-                        <option value="albert">Albert</option>
-                        <option value="profe">Profe</option>
-                    </select>
-                    <h4>Tria Urgencia: </h4>
-                    <select id ="tria">
-                        <option id="div6" value="molt urgent">Molt Urgent</option>
-                        <option id="div7" value="urgent">Urgent</option>
-                        <option id="div8" value="poc urgent">Poc Urgent</option>
-                    </select>
-                    <input type="hidden" name="estat" value="todo" id="estat">
-                    <br>
-                    <br>
-                    <button id="btn-Crear">Crear</button>
+                    <form>
+                        <h4>Entra el codi</h4>
+                        <input type="number" name = "codi" id="codi">
+                        <h4>Entra la decripcio</h4>
+                        <input type="text" name = "descripcio" id="descripcio" value="">
+                        <h4>Entra la data de inici</h4>
+                        <input type="date" name = "dataInici" id="dataInici">
+                        <h4>Entra la data de finalitzacio</h4>
+                        <input type="date" name = "dataFinal" id="dataFinal">
+                        <h4>Entra el nom del responsable</h4>
+                        <select id ="nom">
+                            <option value="alex">Alex</option>
+                            <option value="albert">Albert</option>
+                            <option value="profe">Profe</option>
+                        </select>
+                        <h4>Tria Urgencia: </h4>
+                        <select id ="tria">
+                            <option id="div6" value="molt urgent">Molt Urgent</option>
+                            <option id="div7" value="urgent">Urgent</option>
+                            <option id="div8" value="poc urgent">Poc Urgent</option>
+                        </select>
+                        <input type="hidden" name="estat" value="todo" id="estat">
+                        <br>
+                        <br>
+                        <button type="reset" id="btn-Crear">Crear</button>
+                    </form>
                 </td>
                 <td id="div1" class="div1" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
                 <td id="div2" class="div1" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
