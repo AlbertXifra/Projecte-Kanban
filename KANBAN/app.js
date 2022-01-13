@@ -51,7 +51,7 @@ btn.addEventListener("click", () => {
     {
         alert("Falten dades per inserir");
     }
-
+    btn.innerText = "Crear";
 });
 
 //Funcio per mirar si les tasques estan repetides
@@ -95,17 +95,17 @@ function mostrarDades() {
             {
                 if(tascaAnterior[i].tria == 'urgent')
                 {
-                    div1.innerHTML += `<p id="${i}" draggable="true" ondragstart="drag(event)" class="urgent">
+                    div1.innerHTML += `<p id="${i}" draggable="true" ondragstart="drag(event)" class="urgent" ondblclick="editar(${i})">
                     ${tascaAnterior[i].codi + ' ' + tascaAnterior[i].descripcio + ' ' + tascaAnterior[i].dataInici + ' ' + tascaAnterior[i].dataFinal + ' ' + tascaAnterior[i].nom + '<button class="btn-delete" id = "delete-button" onclick="eliminar_tasques(' + i})">Delete</button></p>`
                 }
                 else if(tascaAnterior[i].tria == 'poc urgent')
                 {
-                    div1.innerHTML += `<p id="${i}" draggable="true" ondragstart="drag(event)" class="poc">
+                    div1.innerHTML += `<p id="${i}" draggable="true" ondragstart="drag(event)" class="poc" ondblclick="editar(${i})">
                     ${tascaAnterior[i].codi + ' ' + tascaAnterior[i].descripcio + ' ' + tascaAnterior[i].dataInici + ' ' + tascaAnterior[i].dataFinal + ' ' + tascaAnterior[i].nom + '<button class="btn-delete" id = "delete-button" onclick="eliminar_tasques(' + i})">Delete</button></p>`
                 }
                 else if(tascaAnterior[i].tria == 'molt urgent')
                 {
-                    div1.innerHTML += `<p id="${i}" draggable="true" ondragstart="drag(event)" class="molt">
+                    div1.innerHTML += `<p id="${i}" draggable="true" ondragstart="drag(event)" class="molt" ondblclick="editar(${i})">
                     ${tascaAnterior[i].codi + ' ' + tascaAnterior[i].descripcio + ' ' + tascaAnterior[i].dataInici + ' ' + tascaAnterior[i].dataFinal + ' ' + tascaAnterior[i].nom + '<button class="btn-delete" id = "delete-button" onclick="eliminar_tasques(' + i})">Delete</button></p>`
                 }
             }
@@ -113,17 +113,17 @@ function mostrarDades() {
             {
                 if(tascaAnterior[i].tria == 'urgent')
                 {
-                    div2.innerHTML += `<p id="${i}" draggable="true" ondragstart="drag(event)" class="urgent">
+                    div2.innerHTML += `<p id="${i}" draggable="true" ondragstart="drag(event)" class="urgent" ondblclick="editar(${i})">
                     ${tascaAnterior[i].codi + ' ' + tascaAnterior[i].descripcio + ' ' + tascaAnterior[i].dataInici + ' ' + tascaAnterior[i].dataFinal + ' ' + tascaAnterior[i].nom + '<button class="btn-delete" id = "delete-button" onclick="eliminar_tasques(' + i})">Delete</button></p>`
                 }
                 else if(tascaAnterior[i].tria == 'poc urgent')
                 {
-                    div2.innerHTML += `<p id="${i}" draggable="true" ondragstart="drag(event)" class="poc">
+                    div2.innerHTML += `<p id="${i}" draggable="true" ondragstart="drag(event)" class="poc" ondblclick="editar(${i})">
                     ${tascaAnterior[i].codi + ' ' + tascaAnterior[i].descripcio + ' ' + tascaAnterior[i].dataInici + ' ' + tascaAnterior[i].dataFinal + ' ' + tascaAnterior[i].nom + '<button class="btn-delete" id = "delete-button" onclick="eliminar_tasques(' + i})">Delete</button></p>`
                 }
                 else if(tascaAnterior[i].tria == 'molt urgent')
                 {
-                    div2.innerHTML += `<p id="${i}" draggable="true" ondragstart="drag(event)" class="molt">
+                    div2.innerHTML += `<p id="${i}" draggable="true" ondragstart="drag(event)" class="molt" ondblclick="editar(${i})">
                     ${tascaAnterior[i].codi + ' ' + tascaAnterior[i].descripcio + ' ' + tascaAnterior[i].dataInici + ' ' + tascaAnterior[i].dataFinal + ' ' + tascaAnterior[i].nom + '<button class="btn-delete" id = "delete-button" onclick="eliminar_tasques(' + i})">Delete</button></p>`
                 }
             }
@@ -131,17 +131,17 @@ function mostrarDades() {
             {
                 if(tascaAnterior[i].tria == 'urgent')
                 {
-                    div3.innerHTML += `<p id="${i}" draggable="true" ondragstart="drag(event)" class="urgent">
+                    div3.innerHTML += `<p id="${i}" draggable="true" ondragstart="drag(event)" class="urgent" ondblclick="editar(${i})">
                     ${tascaAnterior[i].codi + ' ' + tascaAnterior[i].descripcio + ' ' + tascaAnterior[i].dataInici + ' ' + tascaAnterior[i].dataFinal + ' ' + tascaAnterior[i].nom + '<button class="btn-delete" id = "delete-button" onclick="eliminar_tasques(' + i})">Delete</button></p>`
                 }
                 else if(tascaAnterior[i].tria == 'poc urgent')
                 {
-                    div3.innerHTML += `<p id="${i}" draggable="true" ondragstart="drag(event)" class="poc">
+                    div3.innerHTML += `<p id="${i}" draggable="true" ondragstart="drag(event)" class="poc" ondblclick="editar(${i})">
                     ${tascaAnterior[i].codi + ' ' + tascaAnterior[i].descripcio + ' ' + tascaAnterior[i].dataInici + ' ' + tascaAnterior[i].dataFinal + ' ' + tascaAnterior[i].nom + '<button class="btn-delete" id = "delete-button" onclick="eliminar_tasques(' + i})">Delete</button></p>`
                 }
                 else if(tascaAnterior[i].tria == 'molt urgent')
                 {
-                    div3.innerHTML += `<p id="${i}" draggable="true" ondragstart="drag(event)" class="molt">
+                    div3.innerHTML += `<p id="${i}" draggable="true" ondragstart="drag(event)" class="molt" ondblclick="editar(${i})">
                     ${tascaAnterior[i].codi + ' ' + tascaAnterior[i].descripcio + ' ' + tascaAnterior[i].dataInici + ' ' + tascaAnterior[i].dataFinal + ' ' + tascaAnterior[i].nom + '<button class="btn-delete" id = "delete-button" onclick="eliminar_tasques(' + i})">Delete</button></p>`
                 }
             }
@@ -195,4 +195,27 @@ function eliminar_tasques(id) {
     window.localStorage.setItem('tasca', JSON.stringify(tasques));
 
     mostrarDades();
+}
+
+function editar(id) {
+    console.log("entra al dobleclic");
+    console.log(id);
+
+    let tasques = JSON.parse(window.localStorage.getItem('tasca'));
+    
+    tascaModificar = tasques[id];
+
+    codi.value = tascaModificar.codi;
+    descripcio.value = tascaModificar.descripcio;
+    dataInici.value = tascaModificar.dataInici;
+    dataFinal.value = tascaModificar.dataFinal;
+    nom.value = tascaModificar.nom;
+    tria.value = tascaModificar.tria;
+    estat.value = tascaModificar.estat;
+
+    window.localStorage.setItem('tasca', JSON.stringify(tasques));
+
+    btn.innerText = "Modificar";
+
+    eliminar_tasques(id);
 }
