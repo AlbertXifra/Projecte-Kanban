@@ -1,5 +1,3 @@
-import { Database } from "./db.js";
-
 //Declarar les variables
 let codi = document.getElementById('codi');
 let descripcio = document.getElementById('descripcio');
@@ -13,10 +11,7 @@ let div1 = document.getElementById('div1');
 let div2 = document.getElementById('div2');
 let div3 = document.getElementById('div3');
 
-let db = new Database();
-let tascaAnterior = [];
-
-recperarDades();
+mostrarDades();
 
 //Boto per entrar dades a ToDo
 btn.addEventListener("click", () => {
@@ -31,11 +26,18 @@ btn.addEventListener("click", () => {
         if(!comprovarTasquesRep()) {
             
             if(negatiuCodi()) {
-                //Afegir tasca en el firestore
-                db.afegirTasca(codi.value, descripcio.value, dataInici.value, 
-                    dataFinal.value, nom.value, tria.value, estat.value);
-                
-                recperarDades();
+                //If per comprovar que el codi no sigui mes petit o igual a 0
+                if(tasquesAnteriors != undefined) {
+                    tasquesAnteriors.push({codi: codi.value, descripcio: descripcio.value, dataInici: dataInici.value, 
+                    dataFinal: dataFinal.value, nom: nom.value, tria: tria.value, estat: estat.value});
+                    window.localStorage.setItem('tasca', JSON.stringify(tasquesAnteriors));
+                }   
+                else {
+                    let dades = {codi: codi.value, descripcio: descripcio.value, dataInici: dataInici.value, 
+                    dataFinal: dataFinal.value, nom: nom.value, tria: tria.value, estat: estat.value};
+                    window.localStorage.setItem('tasca', JSON.stringify([dades]));
+                }
+                mostrarDades();
             }
             else {
                 alert("El nombre del codi introduit es menor o igual a 0");
@@ -79,21 +81,12 @@ function negatiuCodi() {
     }
 }
 
-async function recperarDades() {
-    let tasquess = await db.recuperarTasca();
-    tascaAnterior = [];
-    tasquess.forEach(doc => {
-        tascaAnterior.push(doc.data())
-    })
-    mostrarDades();
-}
-
 // Funcio mostrar dades a la taula
 function mostrarDades() {
     div1.innerText = '';
     div2.innerText = '';
     div3.innerText = '';
-    
+    let tascaAnterior = JSON.parse(window.localStorage.getItem('tasca'));
     if(tascaAnterior != undefined)
     {
         for(let i = 0; i < tascaAnterior.length; i++)
@@ -175,8 +168,7 @@ function drop(ev)
     ev.target.appendChild(document.getElementById(data));
     console.log(ev.target.id);
 
-    // let tasques = JSON.parse(window.localStorage.getItem('tasca'));
-    let tasques = db.recuperarDades();
+    let tasques = JSON.parse(window.localStorage.getItem('tasca'));
 
     if(ev.target.id == "div3")
     {
@@ -192,21 +184,17 @@ function drop(ev)
             dataFinal: tasques[data].dataFinal, nom: tasques[data].nom, tria: tasques[data].tria, estat: "doing"};
     }
 
-    // window.localStorage.setItem('tasca', JSON.stringify(tasques));
-    db.afegirTasca(codi.value, descripcio.value, dataInici.value, dataFinal.value, nom.value, tria.value, estat.value);
+    window.localStorage.setItem('tasca', JSON.stringify(tasques));
 }
 
 function eliminar_tasques(id) {
-    // let tasques = JSON.parse(window.localStorage.getItem('tasca'));
-
-    let tasques = db.eliminarTasca();
+    let tasques = JSON.parse(window.localStorage.getItem('tasca'));
     
     tasques.splice(id,1);
 
-    // window.localStorage.setItem('tasca', JSON.stringify(tasques));
-    // db.afegirTasca(codi.value, descripcio.value, dataInici.value, dataFinal.value, nom.value, tria.value, estat.value);
+    window.localStorage.setItem('tasca', JSON.stringify(tasques));
 
-    // db.recuperarTasca();
+    mostrarDades();
 }
 
 function editar(id) {
