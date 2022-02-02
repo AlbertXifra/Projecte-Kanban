@@ -1,0 +1,109 @@
+body {
+    background-image: url("https://p4.wallpaperbetter.com/wallpaper/363/368/20/dark-wood-texture-wallpaper-preview.jpg");
+}
+
+h1{
+    font-size: 45px;
+    color: white;
+    text-shadow: 0.1em 0.1em 0.5em white;
+    text-decoration: underline;
+}
+
+h3{
+    text-align: center;
+    font-size: 23px;
+    color: white;
+    text-shadow: 0 0 0.2em black;
+}
+h4{
+    font-size: 16px;
+    color: white;
+}
+
+p{
+    margin: 0 auto;
+    margin-top: 15px;
+    width: 180px;
+    height: auto;
+    background-color: white;
+    border-radius: 10px 10px 0px 10px;
+    font-size: 18px;
+    text-align: center;
+    color : black;
+}
+
+table {
+    border-color: white;
+    border-radius: 5px;
+    border-style: solid;
+    border-width: solid;
+}
+
+.urgent {
+    margin: 0 auto;
+    width: 150px;
+    height: auto;
+    background-color: yellow;
+    border-radius: 15px 15px 0px 15px;
+    font-size: 18px;
+    text-align: center;
+    color : black;
+    margin-top: 15px;
+}
+
+.poc {
+    margin: 0 auto;
+    width: 150px;
+    height: auto;
+    background-color: green;
+    border-radius: 15px 15px 0px 15px;
+    font-size: 18px;
+    text-align: center;
+    color : black;
+    margin-top: 15px;
+}
+
+.molt {
+    margin: 0 auto;
+    width: 150px;
+    height: auto;
+    background-color: red;
+    border-radius: 15px 15px 0px 15px;
+    font-size: 18px;
+    text-align: center;
+    color : black;
+    margin-top: 15px;
+}
+
+#div {
+    width: 220px;
+    height: 500px;
+    padding: 10px;
+    opacity: 0.7;
+}
+
+#div1 {
+    width: 250px;
+    height: 500px;
+    padding: 10px;
+    opacity: 0.7;
+}
+
+#div2 {
+    width: 250px;
+    height: 350px;
+    padding: 10px;
+    opacity: 0.7;
+}
+
+#div3 {
+    width: 250px;
+    height: 350px;
+    padding: 10px;
+    opacity: 0.7;
+}
+
+.btn-delete {
+    width: auto;
+    height: auto;
+}
