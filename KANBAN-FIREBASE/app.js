@@ -79,7 +79,6 @@ btn.addEventListener("click", () => {
                     //Afegir tasca en el firestore
                     db.afegirTasca(formulari.codi, formulari.descripcio, formulari.dataInici, 
                         formulari.dataFinal, formulari.nom, formulari.tria, formulari.estat);
-                    
                     recperarDades();
                 }
                 else {
@@ -125,7 +124,7 @@ function negatiuCodi() {
     }
 }
 
-async function recperarDades() {
+function recperarDades() {
     
     db.recuperarTasca().then((tasquess) => {
         tascaAnterior = [];
@@ -133,6 +132,7 @@ async function recperarDades() {
             tascaAnterior.push(doc.data());
         })
         mostrarDades();
+        return Promise.resolve(tasquess);
     });
 }
 
@@ -232,6 +232,42 @@ function drag(ev){
     console.log("Drag: ", ev.target.id);
     ev.dataTransfer.setData("text", ev.target.id);
 }
+
+function recperarDades2(ev, data) {
+    db.recuperarTasca().then((tasquess) => {
+        tascaAnterior = [];
+        tasquess.forEach(doc => {
+            tascaAnterior.push(doc.data());
+        })
+        // return Promise.resolve(tasquess);
+        console.log("Tasques: ",tascaAnterior);
+        console.log("data: ", data);
+
+    let estatText;
+    switch(ev.target.id) {
+        case "div1":
+            estatText = "todo";
+            break;
+        case "div2":
+            estatText = "doing";
+            break;
+        case "div3":
+                estatText = "done";
+            break;
+    }
+    
+    tascaAnterior[data].estat = estatText;
+    /* tascaAnterior[data] = {codi: tascaAnterior[data].codi, descripcio: tascaAnterior[data].descripcio, dataInici: tascaAnterior[data].dataInici, 
+        dataFinal: tascaAnterior[data].dataFinal, nom: tascaAnterior[data].nom, tria: tascaAnterior[data].tria, estat: estatText}
+
+        console.log("t: ", tascaAnterior[data]); */
+    // window.localStorage.setItem('tasca', JSON.stringify(tasques));
+    db.afegirTasca(tascaAnterior[data].codi, tascaAnterior[data].descripcio, tascaAnterior[data].dataInici, tascaAnterior[data].dataFinal, tascaAnterior[data].nom, tascaAnterior[data].tria, tascaAnterior[data].estat).then(() => {
+        eliminar_tasques(id);
+        mostrarDades();
+    });    
+    });
+}
   
 function drop(ev)
 {
@@ -242,35 +278,13 @@ function drop(ev)
     ev.target.appendChild(document.getElementById(data));
 
     // let tasques = JSON.parse(window.localStorage.getItem('tasca'));
-    recperarDades().then((tasques) => {
-        console.log("Tasques: ",tasques);
-
-        let estatText;
-        switch(ev.target.id) {
-            case "div1":
-                estatText = "todo";
-                break;
-            case "div2":
-                estatText = "doing";
-                break;
-            case "div3":
-                 estatText = "done";
-                break;
-        }
-    
-        tasques[data] = {codi: tasques[data].codi, descripcio: tasques[data].descripcio, dataInici: tasques[data].dataInici, 
-            dataFinal: tasques[data].dataFinal, nom: tasques[data].nom, tria: tasques[data].tria, estat: estatText}
-    
-        // window.localStorage.setItem('tasca', JSON.stringify(tasques));
-        db.afegirTasca(codi.value, descripcio.value, dataInici.value, dataFinal.value, nom.value, tria.value, estat.value);    
-    });
-
-    }
+    recperarDades2(ev, data);
+}
 
 function eliminar_tasques(id) {
     // let tasques = JSON.parse(window.localStorage.getItem('tasca'));
 
-    // let tasques = db.eliminarTasca();
+    let tasques = db.eliminarTasca();
     
     // tasques.splice(id,1);
 
